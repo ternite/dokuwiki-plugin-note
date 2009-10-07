@@ -56,7 +56,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
  
  
     function getType(){ return 'container'; }
-    function getPType(){ return 'normal'; }
+    function getPType(){ return 'block'; }
     function getAllowedTypes() { 
         return array('container','substition','protected','disabled','formatting','paragraphs');
     }
@@ -106,7 +106,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
 
           switch ($state) {
             case DOKU_LEXER_ENTER :
-              $renderer->doc .= '</p><div class="'.$data.'">';
+              $renderer->doc .= '<div class="'.$data.'">';
               break;
   
             case DOKU_LEXER_UNMATCHED :
@@ -114,7 +114,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
               break;
   
             case DOKU_LEXER_EXIT :
-              $renderer->doc .= "\n</div><p>";
+              $renderer->doc .= "\n</div>";
               break;
           }
           return true;
