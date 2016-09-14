@@ -49,17 +49,13 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
       );
       
     var $default = 'noteclassic';
-  
-    function getInfo(){
-        return confToHash(dirname(__FILE__).'/INFO.txt');
-    }
- 
- 
+
     function getType(){ return 'container'; }
     function getPType(){ return 'block'; }
     function getAllowedTypes() { 
         return array('container','substition','protected','disabled','formatting','paragraphs');
     }
+
     function getSort(){ return 195; }
 
     // override default accepts() method to allow nesting 
@@ -72,11 +68,12 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
     function connectTo($mode) {
         $this->Lexer->addEntryPattern('<note.*?>(?=.*?</note>)',$mode,'plugin_note');
     }
+
     function postConnect() {
         $this->Lexer->addExitPattern('</note>','plugin_note');
     }
- 
-    function handle($match, $state, $pos, &$handler){
+
+    function handle($match, $state, $pos, Doku_Handler $handler) {
 
         switch ($state) {
 
@@ -97,8 +94,8 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
             return array($state);
         }
     }
- 
-    function render($mode, &$renderer, $indata) {
+
+    function render($mode, Doku_Renderer $renderer, $indata) {
 
         if($mode == 'xhtml'){
 
@@ -148,7 +145,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
             $this->render_odt_new ($renderer, $state, $data);
         }
     }
-    
+
     protected function render_odt_old ($renderer, $state, $data) {
         switch ($state) {
             case DOKU_LEXER_ENTER:
@@ -209,6 +206,14 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
         }
     }
 
+    /**
+     * ODT rendering for new versions of the ODT plugin.
+     *
+     * @param $renderer the renderer to use
+     * @param $state    the current state
+     * @param $data     data from handle()
+     * @author LarsDW223
+     */
     protected function render_odt_new ($renderer, $state, $data) {
         switch ($state) {
             case DOKU_LEXER_ENTER:
@@ -273,4 +278,3 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
 }
  
 //Setup VIM: ex: et ts=4 enc=utf-8 :
-?>
