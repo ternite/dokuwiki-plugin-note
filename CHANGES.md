@@ -19,9 +19,9 @@
 * 2006-03-29 (patches by Eric Hameleers and Christopher Smith)
   * allow note nesting
   * fix the trimmed space problem
-  * fix the issue with protected modes (e.g. <tt><code></tt> & <tt><file></tt>) not being allowed within notes
+  * fix the issue with protected modes (e.g. ```<tt><code></tt>``` & ```<tt><file></tt>```) not being allowed within notes
   * plug the security vulnerability which could allow malicious HTML or JavaScript to infiltrate your wiki
-  * make note types case independent (e.g. <tt>important</tt>, <tt>IMPORTANT</tt> & <tt>Important</tt> will all given an "important" note)
+  * make note types case independent (e.g. ```<tt>important</tt>```, ```<tt>IMPORTANT</tt>``` & ```<tt>Important</tt>``` will all given an "important" note)
   * and better:
     * code efficiency
     * code reading
