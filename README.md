@@ -7,18 +7,18 @@ A plugin for [DokuWiki](https://www.dokuwiki.org/) which allows users to easily 
 When you have it installed, use the following syntax `<note>message</note>`:
 
     <note>note</note>
-![note](images/docs/note.png)
+![note](images/doc/note.png)
 
 You can use the note keywords `important`, `warning` and `tip` to change the look of note as well
 
     <note important>important</note>
-![note](images/docs/note_important.png)
+![note](images/doc/note_important.png)
 
     <note tip>tip</note>
-![note](images/docs/note_tip.png)
+![note](images/doc/note_tip.png)
 
     <note warning>warning</note>
-![note](images/docs/note_warning.png)
+![note](images/doc/note_warning.png)
 
 ## Notes
 
