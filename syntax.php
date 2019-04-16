@@ -52,7 +52,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
         'noteclassic'   => array('','classic','classique')
       );
 
-    var $default = 'noteclassic';
+    var $default = 'plugin_note noteclassic';
 
     function getType(){ return 'container'; }
     function getPType(){ return 'block'; }
@@ -104,7 +104,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
 
             switch ($state) {
                 case DOKU_LEXER_ENTER :
-                    $renderer->doc .= '<div class="'.$data.'">';
+                    $renderer->doc .= '<div class="plugin_note '.$data.'">';
                 break;
   
                 case DOKU_LEXER_UNMATCHED :
