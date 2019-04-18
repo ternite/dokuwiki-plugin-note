@@ -1,8 +1,7 @@
 .plugin_note {
   margin: 2em auto;
-  width: 70% !important;
+  max-width: 70%;
   min-height: 40px;
-  clear: both;
   text-align: justify;
   vertical-align: middle;
   border-collapse: collapse;
@@ -13,6 +12,7 @@
   -khtml-border-radius: 20px;
   border-radius: 20px;
   color: black;
+  overflow: hidden;
 }
  
 .noteclassic {
