@@ -14,6 +14,10 @@
   color: black;
   overflow: hidden;
 }
+
+.plugin_note .li {
+  color: black !important;
+}
  
 .noteclassic {
   /*border: 1px solid #99D;*/
