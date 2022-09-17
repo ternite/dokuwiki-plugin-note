@@ -42,3 +42,9 @@
   background-color: #ddffdd;
   background-image: url(images/tip.png);
 }
+ 
+.notearbeitsanweisung {
+  /*border: 1px solid #9d9;*/
+  background-color: #fff0fb;
+  background-image: url(images/arbeitsanweisung.png);
+}

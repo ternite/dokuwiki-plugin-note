@@ -7,6 +7,7 @@
  * <note important>This is an important note</note>
  * <note warning>This is a big warning</note>
  * <note tip>This is a tip</note>
+ * <note arbeitsanweisung>This is a work order</note>
  *
  * by Olivier Cortès <olive@deep-ocean.net>
  * under the terms of the GNU GPL v2.
@@ -46,10 +47,11 @@ require_once DOKU_PLUGIN.'syntax.php';
 class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
 
     var $notes = array(
-        'noteimportant' => array('important', 'importante'),
-        'notewarning'   => array('warning','bloquante','critique'),
-        'notetip'       => array('tip','tuyau','idée'),
-        'noteclassic'   => array('','classic','classique')
+        'noteimportant'   => array('important', 'importante'),
+        'notewarning'     => array('warning','bloquante','critique'),
+        'notetip'         => array('tip','tuyau','idée'),
+        'noteclassic'     => array('','classic','classique'),
+        'notearbeitsanweisung'=> array('arbeitsanweisung','aa', 'work_order')
       );
 
     var $default = 'plugin_note noteclassic';
@@ -153,7 +155,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
                     // The icon for classic notes is named note.png
                     $type = 'note';
                 }
-                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd');
+                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd', 'arbeitsanweisung' => '#ffc0cb');
 
                 // Content
                 $properties = array();
