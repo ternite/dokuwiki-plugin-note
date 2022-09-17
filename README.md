@@ -9,7 +9,7 @@ When you have it installed, use the following syntax `<note>message</note>`:
     <note>note</note>
 ![note](images/doc/note.png)
 
-You can use the note keywords `important`, `warning`, `tip`, and `arbeitsanweisung` to change the look of note as well
+You can use the note keywords `important`, `warning`, `tip`, and `order` to change the look of note as well
 
     <note important>important</note>
 ![note](images/doc/note_important.png)
@@ -20,8 +20,8 @@ You can use the note keywords `important`, `warning`, `tip`, and `arbeitsanweisu
     <note warning>warning</note>
 ![note](images/doc/note_warning.png)
 
-    <note arbeitsanweisung>arbeitsanweisung</note>
-![note](images/doc/note_arbeitsanweisung.png)
+    <note order>order</note>
+![note](images/doc/note_order.png)
 
 ## Notes
 

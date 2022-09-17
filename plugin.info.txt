@@ -3,5 +3,5 @@ author Olivier Cortès, Eric Hameleers, Christopher Smith, Aurélien Bompard, La
 email  olive@deep-ocean.net
 date   2020-06-28
 name   Note Plugin
-desc   Add Note/Important/Tip/Warning/Work_Order Capability (DIV+CSS box)
+desc   Add Note/Important/Tip/Warning/Order Capability (DIV+CSS box)
 url    https://www.dokuwiki.org/plugin:note

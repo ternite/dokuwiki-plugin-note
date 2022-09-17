@@ -9,4 +9,4 @@ $lang['tb_note']      = 'Notiz';
 $lang['tb_tip']       = 'Hinweis';
 $lang['tb_important'] = 'Wichtig';
 $lang['tb_warning']   = 'Warnung';
-$lang['tb_arbeitsanweisung']   = 'Arbeitsanweisung';
+$lang['tb_order']     = 'Arbeitsanweisung';
