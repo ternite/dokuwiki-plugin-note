@@ -8,6 +8,7 @@
  * <note warning>This is a big warning</note>
  * <note tip>This is a tip</note>
  * <note order>This is an order</note>
+ * <note deprecated>This is deprecated content</note>
  *
  * by Olivier Cortès <olive@deep-ocean.net>
  * under the terms of the GNU GPL v2.
@@ -51,7 +52,8 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
         'notewarning'     => array('warning','bloquante','critique'),
         'notetip'         => array('tip','tuyau','idée'),
         'noteclassic'     => array('','classic','classique'),
-        'noteorder'=> array('order','aa', 'arbeitsanweisung')
+        'noteorder'       => array('order','aa', 'arbeitsanweisung'),
+        'notedeprecated'  => array('deprecated','depr')
       );
 
     var $default = 'plugin_note noteclassic';
@@ -155,7 +157,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
                     // The icon for classic notes is named note.png
                     $type = 'note';
                 }
-                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd', 'order' => '#fff0fb');
+                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd', 'order' => '#fff0fb', 'deprecated' => '#888888');
 
                 // Content
                 $properties = array();

@@ -48,3 +48,10 @@
   background-color: #fff0fb;
   background-image: url(images/order.png);
 }
+
+.notedeprecated {
+  /*border: 1px solid #9d9;*/
+  background-color: #f3f3f3;
+  color: #888888;
+  background-image: url(images/deprecated.png);
+}
