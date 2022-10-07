@@ -15,7 +15,7 @@
   overflow: hidden;
 }
 
-.plugin_note .li {
+.plugin_note .li :not(.notedeprecated) {
   color: black !important;
 }
  
@@ -52,6 +52,7 @@
 .notedeprecated {
   /*border: 1px solid #9d9;*/
   background-color: #f3f3f3;
-  color: #888888;
+  color: #888888 !important;
   background-image: url(images/deprecated.png);
+  font-size: 90%;
 }
