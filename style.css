@@ -15,7 +15,7 @@
   overflow: hidden;
 }
 
-.plugin_note .li :not(.notedeprecated) {
+.plugin_note .li {
   color: black !important;
 }
  
