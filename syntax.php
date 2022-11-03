@@ -53,7 +53,8 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
         'notetip'         => array('tip','tuyau','idée'),
         'noteclassic'     => array('','classic','classique'),
         'noteorder'       => array('order','aa', 'arbeitsanweisung'),
-        'notedeprecated'  => array('deprecated','depr')
+        'notedeprecated'  => array('deprecated','depr'),
+        'notexhtmlonly'   => array('xhtmlonly','xhtml','silent')
       );
 
     var $default = 'plugin_note noteclassic';
@@ -103,12 +104,18 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
     }
 
     function render($mode, Doku_Renderer $renderer, $indata) {
+        list($state, $data) = $indata;
+        $type = substr($data, 4);
+        
         if($mode == 'xhtml'){
-            list($state, $data) = $indata;
-
             switch ($state) {
                 case DOKU_LEXER_ENTER :
                     $renderer->doc .= '<div class="plugin_note '.$data.'">';
+                    if ($type == 'xhtmlonly') {
+                        $renderer->doc .= "<p class='plugin_note_whisper'><i>".$this->getLang("whisper_xhtmlonly")."</i></p>";
+                    } else if ($type == 'deprecated') {
+                        $renderer->doc .= "<p class='plugin_note_whisper'><i>".$this->getLang("whisper_deprecated")."</i></p>";
+                    }
                 break;
   
                 case DOKU_LEXER_UNMATCHED :
@@ -121,10 +128,12 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
             }
             return true;
         } elseif ($mode == 'odt'){
-            list($state, $data) = $indata;
-
-            $this->render_odt ($renderer, $state, $data);
-            return true;
+            if ($type != 'xhtmlonly') {
+                $this->render_odt ($renderer, $state, $data);
+                return true;
+            } else {
+                return false;
+            }
         }
         
         // unsupported $mode
@@ -157,7 +166,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
                     // The icon for classic notes is named note.png
                     $type = 'note';
                 }
-                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd', 'order' => '#fff0fb', 'deprecated' => '#888888');
+                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd', 'order' => '#fff0fb', 'deprecated' => '#888888', 'xhtmlonly' => '#f7f7f7');
 
                 // Content
                 $properties = array();

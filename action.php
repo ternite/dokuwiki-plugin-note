@@ -54,6 +54,13 @@ class action_plugin_note extends DokuWiki_Action_Plugin {
                     'open'   => '<note warning>',
                     'close'  => '</note>',
                 ),
+                array(
+                    'type'   => 'format',
+                    'title'  => $this->getLang('tb_order'),
+                    'icon'   => '../../plugins/note/images/tb_order.png',
+                    'open'   => '<note order>',
+                    'close'  => '</note>',
+                ),
             )
         );
     }

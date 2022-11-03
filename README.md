@@ -9,7 +9,7 @@ When you have it installed, use the following syntax `<note>message</note>`:
     <note>note</note>
 ![note](images/doc/note.png)
 
-You can use the note keywords `important`, `warning`, `tip`, and `order` to change the look of note as well
+You can use the note keywords `important`, `warning`, `tip`, `order`, `deprecated`, and `xhtml_only` to change the look of note as well
 
     <note important>important</note>
 ![note](images/doc/note_important.png)
@@ -22,6 +22,12 @@ You can use the note keywords `important`, `warning`, `tip`, and `order` to chan
 
     <note order>order</note>
 ![note](images/doc/note_order.png)
+
+    <note deprecated>deprecated</note>
+![note](images/doc/note_deprecated.png)
+
+    <note xhtml_only>xhtml_only</note>
+![note](images/doc/note_xhtml_only.png)
 
 ## Notes
 

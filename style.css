@@ -15,6 +15,10 @@
   overflow: hidden;
 }
 
+.plugin_note_whisper {
+  font-size: 90%;
+}
+
 .plugin_note .li {
   color: black !important;
 }
@@ -54,5 +58,13 @@
   background-color: #f3f3f3;
   color: #888888 !important;
   background-image: url(images/deprecated.png);
+  font-size: 90%;
+}
+
+.notexhtmlonly {
+  border: 1px solid #bbb;
+  background-color: #f7f7f7;
+  color: #444444 !important;
+  background-image: url(images/xhtmlonly.png);
   font-size: 90%;
 }
