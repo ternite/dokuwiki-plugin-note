@@ -58,6 +58,9 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
       );
 
     var $default = 'plugin_note noteclassic';
+    
+    // $hidecontent is used as a switch to indicate that the current note type being processed is an xhtmlonly note.
+    var $hidecontent = false;
 
     function getType(){ return 'container'; }
     function getPType(){ return 'block'; }
@@ -105,12 +108,12 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
 
     function render($mode, Doku_Renderer $renderer, $indata) {
         list($state, $data) = $indata;
-        $type = substr($data, 4);
         
         if($mode == 'xhtml'){
             switch ($state) {
                 case DOKU_LEXER_ENTER :
                     $renderer->doc .= '<div class="plugin_note '.$data.'">';
+                    $type = substr($data, 4);
                     if ($type == 'xhtmlonly') {
                         $renderer->doc .= "<p class='plugin_note_whisper'><i>".$this->getLang("whisper_xhtmlonly")."</i></p>";
                     } else if ($type == 'deprecated') {
@@ -128,12 +131,8 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
             }
             return true;
         } elseif ($mode == 'odt'){
-            if ($type != 'xhtmlonly') {
-                $this->render_odt ($renderer, $state, $data);
-                return true;
-            } else {
-                return false;
-            }
+            $this->render_odt ($renderer, $state, $data);
+            return true;
         }
         
         // unsupported $mode
@@ -162,7 +161,10 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
         switch ($state) {
             case DOKU_LEXER_ENTER:
                 $type = substr($data, 4);
-                if ($type == 'classic') {
+                if ($type == 'xhtmlonly') {
+                    $this->hidecontent = true;
+                    break;
+                } else if ($type == 'classic') {
                     // The icon for classic notes is named note.png
                     $type = 'note';
                 }
@@ -207,14 +209,19 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
             break;
 
             case DOKU_LEXER_UNMATCHED :
-                $renderer->cdata($data);
+                if (!$this->hidecontent) {
+                    $renderer->cdata($data);
+                }
             break;
 
             case DOKU_LEXER_EXIT :
-                $renderer->tablecell_close();
-                $renderer->tablerow_close();
-                $renderer->_odtTableClose();
-                $renderer->p_open();
+                if (!$this->hidecontent) {
+                    $renderer->tablecell_close();
+                    $renderer->tablerow_close();
+                    $renderer->_odtTableClose();
+                    $renderer->p_open();
+                }
+                $this->hidecontent = false;
             break;
         }
     }
@@ -230,6 +237,11 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
     protected function render_odt_new ($renderer, $state, $data) {
         switch ($state) {
             case DOKU_LEXER_ENTER:
+                $type = substr($data, 4);
+                if ($type == 'xhtmlonly') {
+                    $this->hidecontent = true;
+                    break;
+                }
                 $css_properties = array ();
 
                 // Get CSS properties for ODT export.
@@ -277,14 +289,19 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
             break;
 
             case DOKU_LEXER_UNMATCHED :
-                $renderer->cdata($data);
+                if (!$this->hidecontent) {
+                    $renderer->cdata($data);
+                }
             break;
 
             case DOKU_LEXER_EXIT :
-                $renderer->tablecell_close();
-                $renderer->tablerow_close();
-                $renderer->_odtTableClose();
-                $renderer->p_open();
+                if (!$this->hidecontent) {
+                    $renderer->tablecell_close();
+                    $renderer->tablerow_close();
+                    $renderer->_odtTableClose();
+                    $renderer->p_open();
+                }
+                $this->hidecontent = false;
             break;
         }
     }
