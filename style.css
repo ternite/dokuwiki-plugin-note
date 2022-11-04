@@ -59,6 +59,7 @@
   color: #888888 !important;
   background-image: url(images/deprecated.png);
   font-size: 90%;
+  background-size: 32px;
 }
 
 .notexhtmlonly {
@@ -67,4 +68,5 @@
   color: #444444 !important;
   background-image: url(images/xhtmlonly.png);
   font-size: 90%;
+  background-size: 32px;
 }
