@@ -286,6 +286,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
                 $properties ['border'] = '0.002cm solid #000000';
                 $properties ['background-color'] = $css_properties ['background-color'];
                 $renderer->_odtTableCellOpenUseProperties($properties);
+                $renderer->p_close(); // needed here - since _odtTableCellOpenUseProperties opens a paragraph automatically that has a different paragraph formatting/style
             break;
 
             case DOKU_LEXER_UNMATCHED :
