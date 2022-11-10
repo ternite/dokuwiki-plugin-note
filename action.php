@@ -61,6 +61,20 @@ class action_plugin_note extends DokuWiki_Action_Plugin {
                     'open'   => '<note order>',
                     'close'  => '</note>',
                 ),
+                array(
+                    'type'   => 'format',
+                    'title'  => $this->getLang('tb_xhtmlonly'),
+                    'icon'   => '../../plugins/note/images/tb_xhtmlonly.png',
+                    'open'   => '<note xhtmlonly>',
+                    'close'  => '</note>',
+                ),
+                array(
+                    'type'   => 'format',
+                    'title'  => $this->getLang('tb_deprecated'),
+                    'icon'   => '../../plugins/note/images/tb_deprecated.png',
+                    'open'   => '<note deprecated>',
+                    'close'  => '</note>',
+                ),
             )
         );
     }
