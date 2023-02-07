@@ -48,3 +48,9 @@
   background-color: #fff0fb;
   background-image: url(images/order.png);
 }
+ 
+.notetodo {
+  border: 1px solid #9d9;
+  background-color: #f7f7f7;
+  background-image: url(images/todo.png);
+}

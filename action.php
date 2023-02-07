@@ -75,6 +75,13 @@ class action_plugin_note extends DokuWiki_Action_Plugin {
                     'open'   => '<note deprecated>',
                     'close'  => '</note>',
                 ),
+                array(
+                    'type'   => 'format',
+                    'title'  => $this->getLang('tb_todo'),
+                    'icon'   => '../../plugins/note/images/tb_todo.png',
+                    'open'   => '<note todo>',
+                    'close'  => '</note>',
+                ),
             )
         );
     }

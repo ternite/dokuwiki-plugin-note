@@ -70,3 +70,12 @@
   font-size: 90%;
   background-size: 32px;
 }
+
+.notetodo {
+  /*border: 1px solid #9d9;*/
+  background-color: #f7f7f7;
+  color: #888888 !important;
+  background-image: url(images/todo.png);
+  font-size: 90%;
+  background-size: 32px;
+}

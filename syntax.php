@@ -54,7 +54,8 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
         'noteclassic'     => array('','classic','classique'),
         'noteorder'       => array('order','aa', 'arbeitsanweisung'),
         'notedeprecated'  => array('deprecated','depr'),
-        'notexhtmlonly'   => array('xhtmlonly','xhtml','silent')
+        'notexhtmlonly'   => array('xhtmlonly','xhtml','silent'),
+        'notetodo'        => array('todo')
       );
 
     var $default = 'plugin_note noteclassic';
@@ -168,7 +169,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
                     // The icon for classic notes is named note.png
                     $type = 'note';
                 }
-                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd', 'order' => '#fff0fb', 'deprecated' => '#888888', 'xhtmlonly' => '#f7f7f7');
+                $colors = array('note' => '#eeeeff', 'warning' => '#ffdddd', 'important' => '#ffffcc', 'tip' => '#ddffdd', 'order' => '#fff0fb', 'deprecated' => '#888888', 'xhtmlonly' => '#f7f7f7', 'todo' => '#f7f7f7');
 
                 // Content
                 $properties = array();
