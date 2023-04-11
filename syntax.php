@@ -103,7 +103,7 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
                 return array($state, $match);
 
             default:
-                return array($state);
+                return array($state, NULL);
         }
     }
 
@@ -267,25 +267,37 @@ class syntax_plugin_note extends DokuWiki_Syntax_Plugin {
                 $renderer->tablerow_open();
 
                 $properties = array();
-                $properties ['vertical-align'] = $css_properties ['vertical-align'];
+                if (array_key_exists('vertical-align', $properties)) {
+                    $properties ['vertical-align'] = $css_properties ['vertical-align'];
+                }
                 $properties ['text-align'] = 'center';
                 $properties ['padding'] = '0.1cm';
                 $properties ['border'] = '0.002cm solid #000000';
-                $properties ['background-color'] = $css_properties ['background-color'];
+                if (array_key_exists('background-color', $properties)) {
+                    $properties ['background-color'] = $css_properties ['background-color'];
+                }
                 $renderer->_odtTableCellOpenUseProperties($properties);
 
-                if ($css_properties ['background-image']) {
-                    $renderer->_odtAddImage($css_properties ['background-image']);
+                if (array_key_exists('background-image', $css_properties)) {
+                    if ($css_properties ['background-image'] ?? null) {
+                        $renderer->_odtAddImage($css_properties ['background-image']);
+                    }
                 }
 
                 $renderer->tablecell_close();
 
                 $properties = array();
-                $properties ['vertical-align'] = $css_properties ['vertical-align'];
-                $properties ['text-align'] = $css_properties ['text-align'];
+                if (array_key_exists('vertical-align', $css_properties)) {
+                    $properties ['vertical-align'] = $css_properties ['vertical-align'];
+                }
+                if (array_key_exists('text-align', $css_properties)) {
+                    $properties ['text-align'] = $css_properties ['text-align'];
+                }
                 $properties ['padding'] = '0.3cm';
                 $properties ['border'] = '0.002cm solid #000000';
-                $properties ['background-color'] = $css_properties ['background-color'];
+                if (array_key_exists('background-color', $css_properties)) {
+                    $properties ['background-color'] = $css_properties ['background-color'];
+                }
                 $renderer->_odtTableCellOpenUseProperties($properties);
                 $renderer->p_close(); // needed here - since _odtTableCellOpenUseProperties opens a paragraph automatically that has a different paragraph formatting/style
             break;
